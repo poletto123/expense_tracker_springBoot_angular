@@ -11,6 +11,8 @@ This is a personal expense tracker that enables the user to register their perso
 * Spring Security
 * Spring MVC
 * Spring AOP
+* Spring Data JPA
+* Hibernate
 * MySQL
 * Thymeleaf
 * AngularJS
