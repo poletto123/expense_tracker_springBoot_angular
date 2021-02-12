@@ -16,6 +16,6 @@ This is a personal expense tracker that enables the user to register their perso
 * AngularJS
 * Bootstrap
 
-## IN PROGRESS. Where are we?
+## IN PROGRESS. Where does it stand?
 
-CRUD operations are working while using MySQL with Spring Boot/Security/AOP. Next step is to work on frontend with AngularJS, Bootstrap and, to build reporting features.
+CRUD operations are working while using MySQL with Spring Boot/Security/AOP. Next step is to work on frontend with AngularJS, Bootstrap, and to build reporting features.
