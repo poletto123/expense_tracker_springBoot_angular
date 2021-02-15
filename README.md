@@ -16,3 +16,7 @@ This is a personal expense tracker that enables the user to register their perso
 * MySQL
 * Thymeleaf
 * Bootstrap
+
+![Screenshot](screen1.png)
+![Screenshot](screen2.png)
+![Screenshot](screen3.png)
