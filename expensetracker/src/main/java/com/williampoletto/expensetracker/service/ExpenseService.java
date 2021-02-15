@@ -37,9 +37,7 @@ public class ExpenseService {
 		expenseRepository.save(expense);
 	}
 	
-	public void delete(int expenseId) {
-		
-		Expense expense = new Expense(expenseId);
+	public void delete(Expense expense) {
 		
 		expenseRepository.delete(expense);
 	}

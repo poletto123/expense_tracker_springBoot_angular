@@ -1,8 +1,8 @@
 package com.williampoletto.expensetracker.service;
 
-import java.util.LinkedHashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +17,12 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	public Set<Category> findAll(int userId) {
+	public List<Category> findAll(int userId) {
 			
-		Set<Category> userCategories = categoryRepository.findAllWithUserId(userId);
-		Set<Category> fixedCategories = categoryRepository.findAllWithUserIdNull();
+		List<Category> userCategories = categoryRepository.findAllWithUserId(userId);
+		List<Category> fixedCategories = categoryRepository.findAllWithUserIdNull();
 		
-		Set<Category> allCategories = new LinkedHashSet<>();
+		List<Category> allCategories = new ArrayList<>();;
 
 		userCategories.stream()
 							.forEach(category -> allCategories.add(category));
@@ -48,10 +48,8 @@ public class CategoryService {
 		categoryRepository.save(category);
 	}
 	
-	public void delete(int userId, Category category) {
+	public void delete(Category category) {
 		
-		category.setUser(new User(userId));
-
 		categoryRepository.delete(category);
 	}
 	

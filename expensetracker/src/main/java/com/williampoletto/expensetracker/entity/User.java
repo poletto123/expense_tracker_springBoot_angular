@@ -1,5 +1,6 @@
 package com.williampoletto.expensetracker.entity;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,22 +30,6 @@ import lombok.ToString;
 @EqualsAndHashCode(of= "id")
 @Entity
 @Table
-//@NamedEntityGraph(
-//	name = "userWithAllFields",
-//	attributeNodes = {
-//		@NamedAttributeNode(
-//			value="expenses",
-//			subgraph="expenses-subgraph"
-//		),
-//		@NamedAttributeNode("roles"),
-//		@NamedAttributeNode("categories")
-//	},
-//	subgraphs = {
-//		@NamedSubgraph(
-//			name="expenses-subgraph",
-//			attributeNodes=@NamedAttributeNode("categories")
-//		)
-//})
 public class User {
 
 	@Id
@@ -89,7 +74,7 @@ public class User {
 	}
 	
 	@OneToMany(mappedBy = "user",  cascade=CascadeType.PERSIST)
-	private Set<Category> categories;
+	private List<Category> categories;
 
 	public void addCategory(Category category) {
 		categories.add(category);

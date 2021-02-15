@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.williampoletto.expensetracker.entity.Expense;
@@ -24,35 +23,16 @@ public class ExpenseController {
 	@Autowired
 	private ExpenseService expenseService;
 	
-	@GetMapping("/list")
+	@GetMapping
 	public String list(@AuthenticationPrincipal UserDetailsImpl userDetails, Model model) {
 		
 		Set<Expense> expenses = expenseService.findAll(userDetails.getUserId());
 		
 		model.addAttribute("expenses", expenses);
 		
+		model.addAttribute("newExpense", new Expense());
+		
 		return "expenses";
-	}
-	
-	@GetMapping("/showAddForm")
-	public String showFormForAdd(Model model) {
-		
-		Expense expense = new Expense();
-		
-		model.addAttribute("expense", expense);
-		
-		return "/expense-form";
-	}
-	
-	@PostMapping("/showUpdateForm")
-	public String showFormForUpdate(@ModelAttribute Expense expense, RedirectAttributes attributes) {
-		
-//		Expense expense = expenseService.findById(id);
-		
-		attributes.addFlashAttribute("expense", expense);
-		
-		return "/expense-form";
-		
 	}
 	
 	@PostMapping("/save")
@@ -64,16 +44,16 @@ public class ExpenseController {
 		
 		attributes.addFlashAttribute("message", "The expense was saved successfully");
 		
-		return "redirect:/expenses/list";
+		return "redirect:/expenses";
 	}
 
-	@GetMapping("/delete")
-	public String delete(	@RequestParam("expenseId") int expenseId,	RedirectAttributes attributes) {
+	@PostMapping("/delete")
+	public String delete(@ModelAttribute("expense") Expense expense, RedirectAttributes attributes) {
 		
-		expenseService.delete(expenseId);
+		expenseService.delete(expense);
 		
 		attributes.addFlashAttribute("message", "The expense was deleted successfully");
 		
-		return "redirect:/expenses/list";
+		return "redirect:/expenses";
 	}
 }

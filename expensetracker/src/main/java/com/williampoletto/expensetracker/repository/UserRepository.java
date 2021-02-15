@@ -10,8 +10,10 @@ import com.williampoletto.expensetracker.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
  
-	@Query("SELECT u FROM User u JOIN FETCH u.roles where u.username = ?1")
 	Optional<User> findByUsername(String username);
+	
+	@Query("SELECT u FROM User u JOIN FETCH u.roles where u.username = ?1")
+	Optional<User> findByUsernameWithRoles(String username);
 	
 	List<User> findByUsernameIgnoreCase(String username);
 
