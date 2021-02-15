@@ -1,9 +1,9 @@
-# JavaSpring-ExpenseTracker
-A personal expense tracker built with Spring Boot
+# Java_Spring_Thymeleaf-ExpenseTracker(v1)
+A personal expense tracker built with Spring Boot - v1
 
 ## General info:
 
-This is a personal expense tracker that enables the user to register their personal expenses and their respective categories, as well as to have access to graphical and insightiful reports that would nurture positive long-term financial behaviour on the user.
+This is a personal expense tracker that enables the user to register their personal expenses and their respective categories.
 
 ## Technologies that are used:
 
@@ -15,9 +15,4 @@ This is a personal expense tracker that enables the user to register their perso
 * Hibernate
 * MySQL
 * Thymeleaf
-* AngularJS
 * Bootstrap
-
-## IN PROGRESS. Where does it stand?
-
-CRUD operations are working while using MySQL with Spring Boot/Security/AOP. Next step is to work on frontend with AngularJS, Bootstrap, and to build reporting features.
