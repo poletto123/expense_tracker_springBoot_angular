@@ -1,4 +1,5 @@
-# Java_Spring_Thymeleaf-ExpenseTracker
+# expense_tracker_springBoot_angular
+
 A personal expense tracker built with Spring Boot
 
 ## General info:
