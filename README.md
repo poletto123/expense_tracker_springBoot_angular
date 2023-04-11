@@ -14,8 +14,12 @@ This is a personal expense tracker that enables the user to register their perso
 * Spring Data JPA
 * Hibernate
 * MySQL
-* Thymeleaf
 * Bootstrap
+
+## Versions
+
+- v1: Thymeleaf is used on front-end
+- v2: Angular (CLI) is used on front-end
 
 ![Screenshot](screen1.png)
 ![Screenshot](screen2.png)
